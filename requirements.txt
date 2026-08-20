@@ -1,0 +1,35 @@
+# Core
+pandas
+numpy
+scipy
+statsmodels
+scikit-learn
+matplotlib
+seaborn
+plotly
+
+# Deep Learning & Medical AI
+torch
+torchvision
+torchaudio
+opencv-python
+monai
+
+# NLP
+spacy
+transformers
+huggingface_hub
+
+# Backend
+fastapi
+uvicorn
+django
+djangorestframework
+psycopg2-binary
+celery
+redis
+python-dotenv
+
+# MLOps
+mlflow
+docker

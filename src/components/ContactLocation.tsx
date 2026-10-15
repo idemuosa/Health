@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Copy, Check, Send, Navigation, CheckCircle2 } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
-import { store1Img } from '../assets/images';
+import { facilityExteriorImg } from '../assets/images';
 
 export function ContactLocation() {
   const [copiedType, setCopiedType] = useState<string | null>(null);

@@ -1,10 +1,6 @@
 import { Phone, MapPin, ShieldCheck, HeartPulse } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
 import { storeImg } from '../assets/images';
-import { store1Img } from '../assets/images';
-import { store2Img } from '../assets/images';
-import { store3Img } from '../assets/images';
-
 
 export function Hero() {
   return (

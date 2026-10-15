@@ -12,7 +12,6 @@ export {
   store4Img,
   // Aliases for compatibility
   directorImg as DirectorImg,
-  directorImg as DirectorImgImg,
   directorImg as pharmacistPortraitImg,
   directorImg as facilityExteriorImg,
   storeImg as store1Img,

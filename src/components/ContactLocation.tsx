@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Copy, Check, Send, Navigation, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Copy, Check, Send, Navigation, CheckCircle2 } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
 
 export function ContactLocation() {
@@ -10,31 +10,18 @@ export function ContactLocation() {
     name: '',
     email: '',
     phone: '',
-    topic: 'Check Medicine Stock & Pricing',
+    topic: 'General Healthcare Inquiry',
     message: '',
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [ticketId, setTicketId] = useState('');
 
-  // Active map pin state
-  const [activePin, setActivePin] = useState<'entrance' | 'drivethru' | 'parking' | 'transit'>('entrance');
-
   const copyToClipboard = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
     setCopiedType(type);
     setTimeout(() => setCopiedType(null), 2000);
   };
-
-  // Determine current day of week to highlight hours
-  const now = new Date();
-  const currentDay = now.getDay(); // 0 is Sun, 1 is Mon, 6 is Sat
-  const currentHour = now.getHours();
-
-  const isOpen =
-    (currentDay >= 1 && currentDay <= 5 && currentHour >= 8 && currentHour < 21) ||
-    (currentDay === 6 && currentHour >= 9 && currentHour < 19) ||
-    (currentDay === 0 && currentHour >= 10 && currentHour < 17);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,7 +46,7 @@ export function ContactLocation() {
     }
 
     setFormErrors({});
-    const generatedTicket = 'CRM-' + Math.floor(100000 + Math.random() * 900000);
+    const generatedTicket = 'NLH-' + Math.floor(100000 + Math.random() * 900000);
     setTicketId(generatedTicket);
     setIsSubmitted(true);
   };
@@ -69,7 +56,7 @@ export function ContactLocation() {
       name: '',
       email: '',
       phone: '',
-      topic: 'Check Medicine Stock & Pricing',
+      topic: 'General Healthcare Inquiry',
       message: '',
     });
     setIsSubmitted(false);
@@ -81,13 +68,13 @@ export function ContactLocation() {
         {/* Section Title */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-teal-800 tracking-wide uppercase mb-2">
-            Direct Assistance & Visit Us
+            Get in Touch & Visit Us
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
-            Contact CuraMed Store & Visit Our Location
+            Contact NewLight Health Services
           </h2>
           <p className="mt-3 text-base text-slate-600 leading-relaxed">
-            Reach our licensed pharmacists directly via dedicated phone lines, email dispensary records, or visit our physical storefront with convenient parking and 24/7 drive-through service.
+            Reach out to our clinical staff via phone or email, or visit our facility in Benin City, Edo State for personalized medical care and consultations.
           </p>
         </div>
 
@@ -103,15 +90,15 @@ export function ContactLocation() {
                 Phone Contact
               </h3>
               <p className="text-xs text-slate-500 mb-4">
-                Direct lines to our dispensing counter, pharmacist consultation, and automated refill lines.
+                Speak directly with our healthcare personnel and consultation desk.
               </p>
 
               <div className="space-y-3 text-xs">
                 <div>
-                  <div className="text-slate-500 text-[11px] font-medium">Primary Store & Dispensary</div>
+                  <div className="text-slate-500 text-[11px] font-medium">Primary Line & WhatsApp</div>
                   <div className="flex items-center justify-between mt-0.5">
                     <a
-                      href={`tel:${STORE_INFO.phonePrimary.replace(/[^\d+]/g, '')}`}
+                      href={`tel:${STORE_INFO.phonePrimary}`}
                       className="font-bold text-slate-900 hover:text-teal-700 font-mono text-sm"
                     >
                       {STORE_INFO.phonePrimary}
@@ -129,60 +116,30 @@ export function ContactLocation() {
                     </button>
                   </div>
                 </div>
-
-                <div className="pt-2 border-t border-slate-200/60">
-                  <div className="text-slate-500 text-[11px] font-medium">Toll-Free Store Helpline</div>
-                  <div className="flex items-center justify-between mt-0.5">
-                    <a
-                      href={`tel:${STORE_INFO.phoneTollFree.replace(/[^\d+]/g, '')}`}
-                      className="font-semibold text-slate-900 hover:text-teal-700 font-mono text-xs"
-                    >
-                      {STORE_INFO.phoneTollFree}
-                    </a>
-                    <button
-                      onClick={() => copyToClipboard(STORE_INFO.phoneTollFree, 'phoneTollFree')}
-                      className="text-slate-400 hover:text-slate-700 p-1"
-                      title="Copy phone"
-                    >
-                      {copiedType === 'phoneTollFree' ? (
-                        <Check className="w-3.5 h-3.5 text-teal-700" />
-                      ) : (
-                        <Copy className="w-3.5 h-3.5" />
-                      )}
-                    </button>
-                  </div>
-                </div>
-
-                <div className="pt-2 border-t border-slate-200/60">
-                  <div className="text-slate-500 text-[11px] font-medium">24/7 On-Call Emergency Pharmacist</div>
-                  <div className="font-semibold text-rose-800 font-mono text-xs mt-0.5">
-                    {STORE_INFO.phoneEmergency}
-                  </div>
-                </div>
               </div>
             </div>
 
             <div className="mt-5 pt-3 border-t border-slate-200/60 text-[11px] text-slate-400">
-              Immediate answer time during store hours
+              Available during opening hours for prompt support
             </div>
           </div>
 
-          {/* Channel 2: Email Addresses */}
+          {/* Channel 2: Email Address */}
           <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4">
                 <Mail className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-slate-900 mb-1">
-                Email Addresses
+                Email Address
               </h3>
               <p className="text-xs text-slate-500 mb-4">
-                Send clinical questions, insurance transfer documents, or general store feedback.
+                Send health inquiries, medical questions, or general feedback.
               </p>
 
               <div className="space-y-3 text-xs">
                 <div>
-                  <div className="text-slate-500 text-[11px] font-medium">Patient Care & Inquiries</div>
+                  <div className="text-slate-500 text-[11px] font-medium">Official Contact Email</div>
                   <div className="flex items-center justify-between mt-0.5">
                     <a
                       href={`mailto:${STORE_INFO.emailCare}`}
@@ -203,41 +160,11 @@ export function ContactLocation() {
                     </button>
                   </div>
                 </div>
-
-                <div className="pt-2 border-t border-slate-200/60">
-                  <div className="text-slate-500 text-[11px] font-medium">General Support & Store Info</div>
-                  <div className="flex items-center justify-between mt-0.5">
-                    <a
-                      href={`mailto:${STORE_INFO.emailPrescriptions}`}
-                      className="font-semibold text-slate-900 hover:text-teal-700 font-mono text-xs"
-                    >
-                      {STORE_INFO.emailPrescriptions}
-                    </a>
-                    <button
-                      onClick={() => copyToClipboard(STORE_INFO.emailPrescriptions, 'emailPrescriptions')}
-                      className="text-slate-400 hover:text-slate-700 p-1"
-                      title="Copy email"
-                    >
-                      {copiedType === 'emailPrescriptions' ? (
-                        <Check className="w-3.5 h-3.5 text-teal-700" />
-                      ) : (
-                        <Copy className="w-3.5 h-3.5" />
-                      )}
-                    </button>
-                  </div>
-                </div>
-
-                <div className="pt-2 border-t border-slate-200/60">
-                  <div className="text-slate-500 text-[11px] font-medium">HIPAA Encrypted Portal</div>
-                  <div className="text-slate-700 text-xs mt-0.5">
-                    Secure clinical communication compliant with medical privacy standards.
-                  </div>
-                </div>
               </div>
             </div>
 
             <div className="mt-5 pt-3 border-t border-slate-200/60 text-[11px] text-slate-400">
-              Average email response &lt; 20 minutes
+              Responsive electronic communication
             </div>
           </div>
 
@@ -248,10 +175,10 @@ export function ContactLocation() {
                 <MapPin className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-slate-900 mb-1">
-                Store Location
+                Physical Address
               </h3>
               <p className="text-xs text-slate-500 mb-4">
-                Centrally located with direct hospital proximity and drive-through access.
+                Visit our center in Benin City, Edo State, Nigeria.
               </p>
 
               <div className="space-y-2 text-xs">
@@ -263,12 +190,6 @@ export function ContactLocation() {
                 </div>
                 <div className="font-semibold text-slate-900">
                   {STORE_INFO.cityStateZip}
-                </div>
-
-                <div className="pt-3 border-t border-slate-200/60 space-y-1.5 text-slate-500">
-                  <div>· Free surface patient parking (28 spots)</div>
-                  <div>· 24/7 drive-thru pick-up on East wing</div>
-                  <div>· Lane transit access: Bus Line 14</div>
                 </div>
               </div>
             </div>
@@ -298,203 +219,60 @@ export function ContactLocation() {
 
               <a
                 href={`https://maps.google.com/?q=${encodeURIComponent(
-                  `${STORE_INFO.addressLine1}, ${STORE_INFO.cityStateZip}`
+                  `${STORE_INFO.addressLine1}, ${STORE_INFO.addressLine2}, ${STORE_INFO.cityStateZip}`
                 )}`}
                 target="_blank"
                 rel="noreferrer"
                 className="py-2 px-3 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-lg transition-colors flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
                 <Navigation className="w-3.5 h-3.5" />
-                <span>Directions</span>
+                <span>Map</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Two-Column Grid: Hours & Interactive Map vs Interactive Contact Form */}
+        {/* Two-Column Grid: Hours vs Contact Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left: Operating Hours & Simulated Interactive Store Map (7 cols) */}
-          <div className="lg:col-span-7 space-y-6">
-            {/* Store Hours Card with Live Status Indicator */}
+          {/* Left: Operating Hours (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
             <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-xs">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2.5">
                   <Clock className="w-5 h-5 text-teal-700" />
                   <h3 className="text-base font-bold text-slate-900">
-                    Store & Dispensary Hours
+                    Opening & Consultation Hours
                   </h3>
-                </div>
-
-                <div className="text-xs font-semibold">
-                  {isOpen ? (
-                    <span className="text-teal-800 flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-teal-600"></span>
-                      Open Now
-                    </span>
-                  ) : (
-                    <span className="text-amber-800 flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-amber-600"></span>
-                      Closed · Reopening 8:00 AM
-                    </span>
-                  )}
                 </div>
               </div>
 
               <div className="divide-y divide-slate-100 text-xs mt-2">
-                <div
-                  className={`py-2.5 flex items-center justify-between ${
-                    currentDay >= 1 && currentDay <= 5 ? 'font-bold text-teal-900' : 'text-slate-600'
-                  }`}
-                >
+                <div className="py-2.5 flex items-center justify-between text-slate-700">
                   <span>Monday – Friday</span>
                   <span className="font-mono tabular-nums">8:00 AM – 9:00 PM</span>
                 </div>
-                <div
-                  className={`py-2.5 flex items-center justify-between ${
-                    currentDay === 6 ? 'font-bold text-teal-900' : 'text-slate-600'
-                  }`}
-                >
+                <div className="py-2.5 flex items-center justify-between text-slate-700">
                   <span>Saturday</span>
-                  <span className="font-mono tabular-nums">9:00 AM – 7:00 PM</span>
-                </div>
-                <div
-                  className={`py-2.5 flex items-center justify-between ${
-                    currentDay === 0 ? 'font-bold text-teal-900' : 'text-slate-600'
-                  }`}
-                >
-                  <span>Sunday</span>
-                  <span className="font-mono tabular-nums">10:00 AM – 5:00 PM</span>
+                  <span className="font-mono tabular-nums">8:00 AM – 8:00 PM</span>
                 </div>
                 <div className="py-2.5 flex items-center justify-between text-slate-700">
-                  <span className="font-semibold">Drive-Thru Window</span>
-                  <span className="text-teal-700 font-semibold font-mono">24 Hours / 7 Days</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Interactive Map Layout & Facility Guide */}
-            <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-xs">
-              <div className="p-4 border-b border-slate-100 flex items-center justify-between">
-                <div>
-                  <div className="text-xs font-bold text-slate-900">
-                    Store Compound & Facility Layout
-                  </div>
-                  <div className="text-[11px] text-slate-500">
-                    Select a zone to view access points and directions
-                  </div>
-                </div>
-
-                {/* Segmented Map Filter Buttons */}
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={() => setActivePin('entrance')}
-                    className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors ${
-                      activePin === 'entrance'
-                        ? 'bg-slate-900 text-white'
-                        : 'text-slate-600 hover:bg-slate-100'
-                    }`}
-                  >
-                    Main Store
-                  </button>
-                  <button
-                    onClick={() => setActivePin('drivethru')}
-                    className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors ${
-                      activePin === 'drivethru'
-                        ? 'bg-slate-900 text-white'
-                        : 'text-slate-600 hover:bg-slate-100'
-                    }`}
-                  >
-                    Drive-Thru
-                  </button>
-                  <button
-                    onClick={() => setActivePin('parking')}
-                    className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors ${
-                      activePin === 'parking'
-                        ? 'bg-slate-900 text-white'
-                        : 'text-slate-600 hover:bg-slate-100'
-                    }`}
-                  >
-                    Parking
-                  </button>
-                </div>
-              </div>
-
-              {/* Graphical Simulated Interactive Map Canvas */}
-              <div className="relative bg-slate-900 h-64 sm:h-72 p-6 flex flex-col justify-between text-white overflow-hidden">
-                {/* Street Grid Graphic Representation */}
-                <div className="absolute inset-0 opacity-15 pointer-events-none">
-                  <div className="w-full h-full border-t border-b border-slate-500 grid grid-cols-6 grid-rows-4 gap-4 p-4">
-                    {Array.from({ length: 24 }).map((_, i) => (
-                      <div key={i} className="border border-slate-600 rounded"></div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Map Elements & Visual Pins */}
-                <div className="relative z-10 flex items-start justify-between">
-                  <div className="p-2 rounded-lg bg-slate-800/90 backdrop-blur-xs border border-slate-700 text-xs">
-                    <div className="text-slate-400 text-[10px] uppercase font-mono">Location Reference</div>
-                    <div className="font-semibold text-slate-100">Evergreen Blvd @ 7th Ave</div>
-                  </div>
-
-                  <div className="text-right text-xs text-slate-400">
-                    <div>GPS: 44.0462° N, 123.0220° W</div>
-                    <div className="text-[11px] text-teal-400">North Medical Plaza</div>
-                  </div>
-                </div>
-
-                {/* Interactive Dynamic Callout Card */}
-                <div className="relative z-10 bg-slate-800/95 backdrop-blur-md rounded-xl p-4 border border-slate-700 max-w-md">
-                  {activePin === 'entrance' && (
-                    <div>
-                      <div className="text-xs font-bold text-teal-400 flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5" />
-                        <span>Main Store & Dispensary Entrance</span>
-                      </div>
-                      <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                        Automatic sliding glass doors, zero-step wheelchair ramp, and direct check-in reception desk for OTC retail shopping and consultation.
-                      </p>
-                    </div>
-                  )}
-
-                  {activePin === 'drivethru' && (
-                    <div>
-                      <div className="text-xs font-bold text-teal-400 flex items-center gap-1.5">
-                        <Navigation className="w-3.5 h-3.5" />
-                        <span>24/7 Drive-Through Express Lane</span>
-                      </div>
-                      <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                        Located on the East wing of the building with two dedicated vehicle lanes. Pick up ready orders without leaving your vehicle.
-                      </p>
-                    </div>
-                  )}
-
-                  {activePin === 'parking' && (
-                    <div>
-                      <div className="text-xs font-bold text-teal-400 flex items-center gap-1.5">
-                        <ShieldCheck className="w-3.5 h-3.5" />
-                        <span>Free Patient Parking & EV Stations</span>
-                      </div>
-                      <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                        28 marked patient parking bays right outside the entrance, including 4 ADA accessible spaces and 2 level-2 EV charging bays.
-                      </p>
-                    </div>
-                  )}
+                  <span>Sunday</span>
+                  <span className="font-mono tabular-nums">10:00 AM – 6:00 PM</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: Interactive Contact & Inquiry Form (5 cols) */}
-          <div className="lg:col-span-5 bg-slate-50 rounded-2xl border border-slate-200 p-6 shadow-xs">
+          {/* Right: Contact Form (7 cols) */}
+          <div className="lg:col-span-7 bg-slate-50 rounded-2xl border border-slate-200 p-6 shadow-xs">
             <div className="flex items-center gap-2 mb-2">
               <Mail className="w-4 h-4 text-teal-700" />
               <h3 className="text-base font-bold text-slate-900">
-                Direct Dispensary Inquiry
+                Send Us a Message
               </h3>
             </div>
             <p className="text-xs text-slate-500 mb-6">
-              Send a direct message to our clinical staff. We respond promptly regarding medicine availability, product details, and health questions.
+              Have a question or need assistance? Fill out the form below and our team will get back to you.
             </p>
 
             {isSubmitted ? (
@@ -505,11 +283,11 @@ export function ContactLocation() {
                 <div>
                   <h4 className="text-base font-bold text-slate-900">Message Received</h4>
                   <div className="text-xs text-slate-500 font-mono mt-1">
-                    Inquiry Reference: <span className="font-bold text-slate-800">{ticketId}</span>
+                    Ticket ID: <span className="font-bold text-slate-800">{ticketId}</span>
                   </div>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed max-w-sm mx-auto">
-                  Thank you, <span className="font-semibold text-slate-900">{formData.name}</span>. A supervising pharmacist or care coordinator will contact you at <span className="font-semibold text-slate-900">{formData.email}</span> shortly.
+                  Thank you, <span className="font-semibold text-slate-900">{formData.name}</span>. We will review your message and reply to <span className="font-semibold text-slate-900">{formData.email}</span> shortly.
                 </p>
                 <button
                   onClick={handleResetForm}
@@ -529,7 +307,7 @@ export function ContactLocation() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Eleanor Vance"
+                    placeholder="e.g. Osasere Agbonlahor"
                     className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:border-transparent transition-all"
                   />
                   {formErrors.name && (
@@ -563,7 +341,7 @@ export function ContactLocation() {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="(555) 000-0000"
+                      placeholder="09066302198"
                       className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:border-transparent transition-all"
                     />
                     {formErrors.phone && (
@@ -582,22 +360,22 @@ export function ContactLocation() {
                     onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                     className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:border-transparent transition-all"
                   >
-                    <option value="Check Medicine Stock & Pricing">Check Medicine Stock & Pricing</option>
-                    <option value="Pharmacist Health Consultation">Pharmacist Health Consultation</option>
-                    <option value="General Store & Hours Question">General Store & Hours Question</option>
+                    <option value="General Healthcare Inquiry">General Healthcare Inquiry</option>
+                    <option value="Clinical Consultation Request">Clinical Consultation Request</option>
+                    <option value="Medication Inquiry">Medication Inquiry</option>
                   </select>
                 </div>
 
                 {/* Message */}
                 <div>
                   <label className="block text-xs font-medium text-slate-700 mb-1">
-                    Message / Clinical Details <span className="text-rose-500">*</span>
+                    Message <span className="text-rose-500">*</span>
                   </label>
                   <textarea
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Provide details about your medicine or clinical inquiry..."
+                    placeholder="Provide details about your healthcare inquiry..."
                     className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:border-transparent transition-all resize-none"
                   ></textarea>
                   {formErrors.message && (
@@ -611,12 +389,8 @@ export function ContactLocation() {
                   className="w-full py-3 px-4 text-xs font-semibold text-white bg-teal-700 hover:bg-teal-800 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
                 >
                   <Send className="w-3.5 h-3.5" />
-                  <span>Send Message to Pharmacist</span>
+                  <span>Send Message</span>
                 </button>
-
-                <div className="text-[11px] text-slate-400 text-center">
-                  Protected under HIPAA patient confidentiality standards.
-                </div>
               </form>
             )}
           </div>

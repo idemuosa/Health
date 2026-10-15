@@ -1,27 +1,29 @@
-import { Stethoscope, Syringe, Clock3, Award, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Stethoscope, Activity, HeartPulse, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
+import pharmacistPortraitImg from '../assets/images/pharmacist_lead_portrait_1792056685701.jpg';
+import storeInteriorImg from '../assets/images/store_interior_consultation_1792056684307.jpg';
 
 export function AboutStore() {
   const storeServices = [
     {
       icon: Stethoscope,
-      title: 'Free Walk-in Health Screenings',
-      desc: 'Instant blood pressure checks, capillary blood glucose analysis, and BMI assessments with certified pharmacist feedback.',
+      title: 'Clinical Consultation & Triage',
+      desc: 'One-on-one consultation with qualified healthcare professionals for symptom evaluation, health guidance, and preventive advice.',
     },
     {
-      icon: Syringe,
-      title: 'Immunizations & Vaccinations',
-      desc: 'Annual seasonal flu, Shingrix, pneumococcal, tetanus/Tdap, and travel vaccines administered with no appointment needed.',
+      icon: Activity,
+      title: 'Health Screenings & Monitoring',
+      desc: 'Routine diagnostic checks including blood pressure monitoring, blood glucose testing, body composition, and vital signs.',
     },
     {
-      icon: Clock3,
-      title: 'Medication Synchronization',
-      desc: 'Align all your monthly maintenance medications to be filled on a single, convenient day every month.',
+      icon: HeartPulse,
+      title: 'Chronic Disease Management',
+      desc: 'Tailored management plans and medication therapy reviews for hypertension, diabetes, and long-term health conditions.',
     },
     {
-      icon: Award,
-      title: 'Compliance Blister Packaging',
-      desc: 'Custom multi-dose blister packs organized by time of day (Morning, Noon, Evening, Bedtime) to eliminate dosing errors.',
+      icon: ShieldCheck,
+      title: 'Preventive Care & Wellness',
+      desc: 'Comprehensive nutritional counseling, immunity boosting, preventive healthcare packages, and maternal-child health guidance.',
     },
   ];
 
@@ -31,13 +33,13 @@ export function AboutStore() {
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-teal-800 tracking-wide uppercase mb-2">
-            Our Facility & Team
+            About NewLight Health Services
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
-            About Our Store: Community Trust, Clinical Expertise & Patient Comfort
+            Our Facility, History, Atmosphere & Patient Care
           </h2>
           <p className="mt-3 text-base text-slate-600 leading-relaxed">
-            Established to bring personal, patient-centered care back to pharmacy practice. We are not just a medicine dispenser; we are your local healthcare partners, dedicated to helping you manage chronic wellness and acute recovery with confidence.
+            NewLight Health Services was established in Benin City to deliver compassionate, community-focused medical and pharmaceutical services. Combining modern diagnostic tools, clean clinical facilities, and friendly healthcare professionals, we light the path to holistic health for every family.
           </p>
         </div>
 
@@ -49,104 +51,98 @@ export function AboutStore() {
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                   <img
-                    src="/src/assets/images/pharmacist_portrait.webp"
-                    alt="Dr. Sarah Jenkins, Lead Clinical Pharmacist"
+                    src={pharmacistPortraitImg}
+                    alt="Pharm. Wisdom Idemudia, Lead Pharmacist & Healthcare Director"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
                   />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">
-                    Dr. Sarah Jenkins, PharmD
+                    Pharm. Wisdom Idemudia
                   </h3>
                   <div className="text-xs text-teal-700 font-semibold mt-0.5">
-                    Lead Clinical Pharmacist & Dispensary Director
+                    Lead Pharmacist & Healthcare Director
                   </div>
                   <div className="text-xs text-slate-500 font-mono mt-1">
-                    Board-Certified Pharmacotherapy Specialist (BCPS)
+                    NewLight Health Services
                   </div>
                 </div>
               </div>
 
               <p className="text-xs text-slate-600 leading-relaxed">
-                "Our store was built on a simple promise: every patient leaves knowing exactly how to take their medicine, what side effects to watch for, and how their health products work together. We take time to talk, listen, and answer your questions."
+                "Our commitment at NewLight Health Services is to provide every individual in Benin City with accessible, high-quality, and transparent medical care. From precision prescription dispensing to preventive health checks, your well-being is our utmost priority."
               </p>
 
               <div className="mt-5 space-y-2 pt-4 border-t border-slate-100 text-xs text-slate-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0" />
-                  <span>Doctor of Pharmacy (PharmD), Oregon State University</span>
+                  <span>Licensed Clinical Pharmacist & Healthcare Administrator</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0" />
-                  <span>14+ years in hospital & clinical retail pharmacy</span>
+                  <span>Experienced in primary care and pharmaceutical management</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0" />
-                  <span>Licensed Preceptor for Pharmacy Resident Clinicians</span>
+                  <span>Dedicated to community health outreach in Edo State</span>
                 </div>
               </div>
             </div>
 
             <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span className="font-semibold text-slate-900">Direct Pharmacist Consults:</span>
+              <span className="font-semibold text-slate-900">Direct Consultation Line:</span>
               <span className="font-mono text-slate-700">{STORE_INFO.phonePrimary}</span>
             </div>
           </div>
 
-          {/* Store Interior & Facility Showcase */}
+          {/* Facility & Atmosphere Showcase */}
           <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs flex flex-col justify-between">
             <div className="relative h-64 sm:h-72 bg-slate-100">
               <img
-                src="/src/assets/images/pharmacy_shelves_angle.webp"
-                alt="Modern consultation station and organized pharmacy shelves"
+                src={storeInteriorImg}
+                alt="NewLight Health Services consultation room and interior atmosphere"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-4 text-white">
-                <div className="text-xs font-semibold text-teal-300">Organized Dispensary & Retail Shelves</div>
+                <div className="text-xs font-semibold text-teal-300">Modern Consultation Suite & Friendly Atmosphere</div>
                 <div className="text-xs text-slate-200">
-                  Fully stocked pharmaceutical inventory and over-the-counter products
+                  Clean, confidential, and comfortable clinical spaces
                 </div>
               </div>
             </div>
 
             <div className="p-6">
               <h3 className="text-base font-bold text-slate-900 mb-2">
-                Built for Patient Safety, Accessibility & Comfort
+                Designed for Patient Comfort, Privacy & Comprehensive Care
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Located conveniently directly across from the regional hospital, our store features step-free ramp access, wide aisles, private counseling suites, a 24-hour drive-through pick-up window, and a dedicated automated compounding workstation.
+                Located at No. 4 Atamu Street, off Musheshe, off Upper Sakponba Road in Benin City, our facility offers private consultation rooms, state-of-the-art diagnostic screening gear, and a warm, welcoming environment for patients of all ages.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4 pt-4 border-t border-slate-100 text-xs">
                 <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100">
-                  <div className="font-semibold text-slate-900">Drive-Thru Window</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">24/7 Pick-Up & Drop-Off</div>
+                  <div className="font-semibold text-slate-900">Private Consultations</div>
+                  <div className="text-[11px] text-slate-500 mt-0.5">Confidential Sessions</div>
                 </div>
                 <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100">
-                  <div className="font-semibold text-slate-900">Free Patient Parking</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">28 Dedicated Spots</div>
+                  <div className="font-semibold text-slate-900">Emergency Desk</div>
+                  <div className="text-[11px] text-slate-500 mt-0.5">Rapid Response Guidance</div>
                 </div>
                 <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100 col-span-2 sm:col-span-1">
-                  <div className="font-semibold text-slate-900">ADA Compliant</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Wheelchair Friendly</div>
+                  <div className="font-semibold text-slate-900">Accessible Location</div>
+                  <div className="text-[11px] text-slate-500 mt-0.5">Benin City, Edo State</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* In-Store Clinical Services Bento */}
+        {/* Clinical Specialties & Services */}
         <div>
           <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-4">
-            Comprehensive Clinical Services
+            Specialties & Healthcare Services
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {storeServices.map((service, idx) => {

@@ -1,5 +1,5 @@
 import { ShieldAlert, ThermometerSnowflake, FileCheck2, HeartHandshake, CheckCircle2 } from 'lucide-react';
-import medicineDisplayImg from '../assets/images/medicine_product_display_1792056686096.jpg';
+import { medicineDisplayImg } from '../assets/images';
 
 export function AboutMedicine() {
   const standards = [
@@ -57,12 +57,11 @@ export function AboutMedicine() {
               <img
                 src={medicineDisplayImg}
                 alt="Authentic pharmaceuticals and healthcare supplies display at NewLight Health Services"
-                referrerPolicy="no-referrer"
                 className="w-full h-72 sm:h-80 object-cover"
               />
               <div className="p-5 space-y-3">
                 <div className="text-sm font-bold text-slate-900">
-                  Authentic Healthcare & Medical Supplies
+                  Authentic Healthcare & Pharmaceutical Supplies
                 </div>
                 <div className="text-xs text-slate-600 space-y-2">
                   <div className="flex items-start gap-2">

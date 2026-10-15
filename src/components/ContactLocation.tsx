@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Copy, Check, Send, Navigation, CheckCircle2 } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
+import { facilityExteriorImg } from '../assets/images';
 
 export function ContactLocation() {
   const [copiedType, setCopiedType] = useState<string | null>(null);
@@ -234,7 +235,7 @@ export function ContactLocation() {
 
         {/* Two-Column Grid: Hours vs Contact Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left: Operating Hours (5 cols) */}
+          {/* Left: Operating Hours & Facility Snapshot (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-xs">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
@@ -259,6 +260,24 @@ export function ContactLocation() {
                   <span>Sunday</span>
                   <span className="font-mono tabular-nums">10:00 AM – 6:00 PM</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Facility Location Photo Card */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-xs">
+              <div className="h-48 overflow-hidden relative">
+                <img
+                  src={facilityExteriorImg}
+                  alt="NewLight Health Services entrance and location in Benin City"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 to-transparent p-3 text-white text-xs font-semibold">
+                  Facility Entrance & Center Location
+                </div>
+              </div>
+              <div className="p-4 text-xs text-slate-600">
+                <div className="font-semibold text-slate-900 mb-1">Easy Walk-In & Parking Access</div>
+                Located at No. 4 Atamu Street, off Musheshe, off Upper Sakponba Road in Benin City.
               </div>
             </div>
           </div>

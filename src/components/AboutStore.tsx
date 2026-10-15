@@ -1,7 +1,6 @@
-import { Stethoscope, Activity, HeartPulse, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Stethoscope, Activity, HeartPulse, ShieldCheck, CheckCircle2, UserCheck, Building2 } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
-import pharmacistPortraitImg from '../assets/images/pharmacist_lead_portrait_1792056685701.jpg';
-import storeInteriorImg from '../assets/images/store_interior_consultation_1792056684307.jpg';
+import { pharmacistPortraitImg, storeInteriorImg } from '../assets/images';
 
 export function AboutStore() {
   const storeServices = [
@@ -52,17 +51,16 @@ export function AboutStore() {
                 <div className="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                   <img
                     src={pharmacistPortraitImg}
-                    alt="Pharm. Wisdom Idemudia, Lead Pharmacist & Healthcare Director"
-                    referrerPolicy="no-referrer"
+                    alt="Mr Frank Usenbor, Medicine and Healthcare Director"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">
-                    Pharm. Wisdom Idemudia
+                    Mr Frank Usenbor
                   </h3>
                   <div className="text-xs text-teal-700 font-semibold mt-0.5">
-                    Lead Pharmacist & Healthcare Director
+                   Medicine and Healthcare Director
                   </div>
                   <div className="text-xs text-slate-500 font-mono mt-1">
                     NewLight Health Services
@@ -98,11 +96,10 @@ export function AboutStore() {
 
           {/* Facility & Atmosphere Showcase */}
           <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs flex flex-col justify-between">
-            <div className="relative h-64 sm:h-72 bg-slate-100">
+            <div className="relative h-60 sm:h-64 bg-slate-100">
               <img
                 src={storeInteriorImg}
                 alt="NewLight Health Services consultation room and interior atmosphere"
-                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-4 text-white">
@@ -142,7 +139,7 @@ export function AboutStore() {
         {/* Clinical Specialties & Services */}
         <div>
           <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-4">
-            Specialties & Healthcare Services
+            Healthcare Services
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {storeServices.map((service, idx) => {

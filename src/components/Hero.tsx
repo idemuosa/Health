@@ -1,6 +1,6 @@
 import { Phone, MapPin, ShieldCheck, HeartPulse } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
-import heroImg from '../assets/images/hero_modern_pharmacy_1792056684377.jpg';
+import { heroImg } from '../assets/images';
 
 export function Hero() {
   return (
@@ -77,7 +77,7 @@ export function Hero() {
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <div className="font-semibold text-slate-900">Physical Location</div>
+                  <div className="font-semibold text-slate-900"> Office Location</div>
                   <a href="#location" className="hover:text-teal-700 truncate block max-w-[200px]">
                     {STORE_INFO.addressLine1}
                   </a>
@@ -86,19 +86,18 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Hero Image */}
+          {/* Right Column: Hero Image Showcase */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm aspect-[4/3] lg:aspect-[1/1] xl:aspect-[4/3]">
+            <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm aspect-[4/3] lg:aspect-[1/1] xl:aspect-[4/3] group">
               <img
                 src={heroImg}
                 alt="NewLight Health Services modern health center and pharmacy"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
 
               {/* Scrim overlay for clinical caption */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-5 text-white">
-                <div className="text-xs font-semibold text-teal-300">Modern Clinical & Pharmacy Center</div>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent p-5 text-white">
+                <div className="text-xs font-semibold text-teal-300">Clinical & Pharmacy Center</div>
                 <div className="text-sm font-medium mt-0.5">
                   Professional healthcare delivery and patient-focused consultations in Benin City
                 </div>

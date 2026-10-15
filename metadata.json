@@ -1,0 +1,6 @@
+{
+  "name": "CuraMed Pharmacy & Wellness Store",
+  "description": "Licensed neighborhood pharmacy and medicine store providing authentic clinical medications, certified pharmacist consultations, prescription refills, and store pickup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

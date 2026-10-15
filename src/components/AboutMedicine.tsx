@@ -1,34 +1,35 @@
 import { ShieldAlert, ThermometerSnowflake, FileCheck2, HeartHandshake, CheckCircle2 } from 'lucide-react';
+import medicineDisplayImg from '../assets/images/medicine_product_display_1792056686096.jpg';
 
 export function AboutMedicine() {
   const standards = [
     {
       index: '01',
       icon: ShieldAlert,
-      title: 'Direct Manufacturer Verification',
+      title: 'Direct Manufacturer & Licensed Supply',
       description:
-        'Every tablet, capsule, and solution in our inventory is sourced exclusively from licensed, cGMP-compliant pharmaceutical producers. We track every batch number with tamper-evident packaging and manufacturer certificates.',
+        'All pharmaceuticals at NewLight Health Services are sourced from authorized, regulated manufacturers to guarantee genuine active ingredients, batch authenticity, and complete quality assurance.',
     },
     {
       index: '02',
       icon: ThermometerSnowflake,
-      title: 'Precision 2°C–8°C Cold Chain',
+      title: 'Strict Temperature-Controlled Storage',
       description:
-        'Biologics, insulins, injectable medications, and sensitive eye drops require unbroken temperature control. Our medical-grade refrigerators feature 24/7 digital sensors and backup generators to guarantee potency.',
+        'Temperature-sensitive medications, vaccines, and biologics are preserved under optimal cold chain storage with continuous digital monitoring to guarantee therapeutic potency.',
     },
     {
       index: '03',
       icon: FileCheck2,
-      title: 'Clinical Drug Interaction Audits',
+      title: 'Comprehensive Drug Interaction Reviews',
       description:
-        'Before any medicine leaves our dispensary, our pharmacists conduct a thorough drug-utilization review. We screen for adverse interactions with your current medications, OTC herbal supplements, and dietary restrictions.',
+        'Our clinical team reviews prescription safety, dosage accuracy, and potential drug-drug interactions to ensure safe administration and peace of mind.',
     },
     {
       index: '04',
       icon: HeartHandshake,
-      title: 'Plain-Language Patient Counseling',
+      title: 'Personalized Counseling & Education',
       description:
-        'Every medication and wellness product includes clear directions: when to take, whether food is recommended, common side effects to watch for, and what to do if a dose is accidentally missed.',
+        'We believe informed patients achieve better health outcomes. We provide comprehensive guidance on proper medication usage, timing, potential side effects, and precautions.',
     },
   ];
 
@@ -38,14 +39,13 @@ export function AboutMedicine() {
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-teal-800 tracking-wide uppercase mb-2">
-            Pharmaceutical Integrity
+            Pharmaceutical Excellence
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
-            About the Medicine: Quality, Safety & Clinical Dispensing Standards
+            Our Quality, Safety & Dispensing Standards
           </h2>
           <p className="mt-3 text-base text-slate-600 leading-relaxed">
-            Medications are only as effective as the integrity of their formulation and the safety of their storage.
-            At CuraMed, our dispensing protocols mirror hospital standards to safeguard your health at every step.
+            At NewLight Health Services, we uphold strict healthcare standards so that every medication, treatment, and consultation delivers optimal health and patient safety.
           </p>
         </div>
 
@@ -55,30 +55,27 @@ export function AboutMedicine() {
           <div className="lg:col-span-5 space-y-4">
             <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-xs">
               <img
-                src="/src/assets/images/pharmacy_shelves.webp"
-                alt="Pharmaceutical grade authentic medicines on store shelves"
+                src={medicineDisplayImg}
+                alt="Authentic pharmaceuticals and healthcare supplies display at NewLight Health Services"
                 referrerPolicy="no-referrer"
                 className="w-full h-72 sm:h-80 object-cover"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
               />
               <div className="p-5 space-y-3">
                 <div className="text-sm font-bold text-slate-900">
-                  Verified Pharmaceutical Stock
+                  Authentic Healthcare & Medical Supplies
                 </div>
                 <div className="text-xs text-slate-600 space-y-2">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
-                    <span>Sealed blister packaging prevents moisture ingress and degradation.</span>
+                    <span>Verified pharmaceutical supply chain and NAFDAC registered products.</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
-                    <span>Amber USP Type III glass protects light-sensitive syrups & vitamins.</span>
+                    <span>Hygienic, climate-controlled storage environment.</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
-                    <span>Comprehensive selection of Over-the-Counter (OTC) & health products.</span>
+                    <span>Wide range of essential medicines, wellness products, and diagnostics.</span>
                   </div>
                 </div>
               </div>
@@ -87,7 +84,7 @@ export function AboutMedicine() {
             {/* Patient Guidance Box */}
             <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs text-slate-600">
               <span className="font-semibold text-slate-900">Patient Guidance Note: </span>
-              All products listed in our store catalog are available for in-store purchase or local reservation.
+              Visit our health center at No. 4 Atamu Street, off Musheshe, off Upper Sakponba Road, Benin City for walk-in consultations and prescriptions.
             </div>
           </div>
 

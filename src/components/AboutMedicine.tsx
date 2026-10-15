@@ -21,14 +21,14 @@ export function AboutMedicine() {
       icon: FileCheck2,
       title: 'Clinical Drug Interaction Audits',
       description:
-        'Before any medicine leaves our dispensary, our pharmacists conduct a thorough drug-utilization review. We screen for adverse interactions with your current prescriptions, OTC herbal supplements, and dietary restrictions.',
+        'Before any medicine leaves our dispensary, our pharmacists conduct a thorough drug-utilization review. We screen for adverse interactions with your current medications, OTC herbal supplements, and dietary restrictions.',
     },
     {
       index: '04',
       icon: HeartHandshake,
       title: 'Plain-Language Patient Counseling',
       description:
-        'Every prescription and complex OTC medication includes clear directions: when to take, whether food is recommended, common side effects to watch for, and what to do if a dose is accidentally missed.',
+        'Every medication and wellness product includes clear directions: when to take, whether food is recommended, common side effects to watch for, and what to do if a dose is accidentally missed.',
     },
   ];
 
@@ -55,8 +55,8 @@ export function AboutMedicine() {
           <div className="lg:col-span-5 space-y-4">
             <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-xs">
               <img
-                src="/src/assets/images/medicine_product_display_1792056686096.jpg"
-                alt="Pharmaceutical grade authentic medicines and amber bottles"
+                src="/src/assets/images/pharmacy_shelves.webp"
+                alt="Pharmaceutical grade authentic medicines on store shelves"
                 referrerPolicy="no-referrer"
                 className="w-full h-72 sm:h-80 object-cover"
                 onError={(e) => {
@@ -78,16 +78,16 @@ export function AboutMedicine() {
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
-                    <span>Clear distinction between Over-the-Counter (OTC) & Prescription (Rx).</span>
+                    <span>Comprehensive selection of Over-the-Counter (OTC) & health products.</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* OTC vs Rx Guidance Box */}
+            {/* Patient Guidance Box */}
             <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs text-slate-600">
               <span className="font-semibold text-slate-900">Patient Guidance Note: </span>
-              Items marked <span className="font-semibold text-slate-900">OTC</span> can be purchased directly in-store or online. Items marked <span className="font-semibold text-amber-800">Rx Required</span> require a valid prescription from an authorized medical practitioner prior to fulfillment.
+              All products listed in our store catalog are available for in-store purchase or local reservation.
             </div>
           </div>
 

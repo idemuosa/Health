@@ -135,15 +135,9 @@ export function MedicineStore({
                       <span className="font-mono text-[11px] tracking-wide uppercase font-medium text-slate-500">
                         {med.categoryLabel}
                       </span>
-                      {med.isRxRequired ? (
-                        <span className="text-[11px] font-semibold text-amber-800">
-                          Rx Required
-                        </span>
-                      ) : (
-                        <span className="text-[11px] font-medium text-teal-700">
-                          Over The Counter
-                        </span>
-                      )}
+                      <span className="text-[11px] font-medium text-teal-700">
+                        Over The Counter
+                      </span>
                     </div>
 
                     {/* Medicine Title */}
@@ -215,14 +209,14 @@ export function MedicineStore({
           </div>
         )}
 
-        {/* Prescription Guidance Banner */}
+        {/* Medicine Assistance Banner */}
         <div className="mt-12 p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <div className="text-sm font-bold text-slate-900">
-              Need a medicine not listed or have a doctor's prescription?
+              Need a medicine or wellness product not listed here?
             </div>
             <p className="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              We stock over 5,000 branded and generic pharmaceuticals. If your required medication is not featured in our online highlight catalog, upload your prescription slip or call our dispensary for immediate stock verification.
+              We stock over 5,000 branded and generic healthcare products. If your required item is not featured in our online catalog, contact our dispensary directly for immediate stock verification.
             </p>
           </div>
           <a

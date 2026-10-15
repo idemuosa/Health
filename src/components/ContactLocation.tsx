@@ -10,7 +10,7 @@ export function ContactLocation() {
     name: '',
     email: '',
     phone: '',
-    topic: 'Prescription Refill or Status',
+    topic: 'Check Medicine Stock & Pricing',
     message: '',
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
@@ -69,7 +69,7 @@ export function ContactLocation() {
       name: '',
       email: '',
       phone: '',
-      topic: 'Prescription Refill or Status',
+      topic: 'Check Medicine Stock & Pricing',
       message: '',
     });
     setIsSubmitted(false);
@@ -131,7 +131,7 @@ export function ContactLocation() {
                 </div>
 
                 <div className="pt-2 border-t border-slate-200/60">
-                  <div className="text-slate-500 text-[11px] font-medium">Toll-Free Prescription Helpline</div>
+                  <div className="text-slate-500 text-[11px] font-medium">Toll-Free Store Helpline</div>
                   <div className="flex items-center justify-between mt-0.5">
                     <a
                       href={`tel:${STORE_INFO.phoneTollFree.replace(/[^\d+]/g, '')}`}
@@ -205,7 +205,7 @@ export function ContactLocation() {
                 </div>
 
                 <div className="pt-2 border-t border-slate-200/60">
-                  <div className="text-slate-500 text-[11px] font-medium">Prescription Transfers & Doctor Records</div>
+                  <div className="text-slate-500 text-[11px] font-medium">General Support & Store Info</div>
                   <div className="flex items-center justify-between mt-0.5">
                     <a
                       href={`mailto:${STORE_INFO.emailPrescriptions}`}
@@ -452,7 +452,7 @@ export function ContactLocation() {
                         <span>Main Store & Dispensary Entrance</span>
                       </div>
                       <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                        Automatic sliding glass doors, zero-step wheelchair ramp, and direct check-in reception desk for prescription drop-offs and OTC retail shopping.
+                        Automatic sliding glass doors, zero-step wheelchair ramp, and direct check-in reception desk for OTC retail shopping and consultation.
                       </p>
                     </div>
                   )}
@@ -461,10 +461,10 @@ export function ContactLocation() {
                     <div>
                       <div className="text-xs font-bold text-teal-400 flex items-center gap-1.5">
                         <Navigation className="w-3.5 h-3.5" />
-                        <span>24/7 Drive-Through Prescription Lane</span>
+                        <span>24/7 Drive-Through Express Lane</span>
                       </div>
                       <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                        Located on the East wing of the building with two dedicated vehicle lanes. Pick up ready refills without leaving your vehicle.
+                        Located on the East wing of the building with two dedicated vehicle lanes. Pick up ready orders without leaving your vehicle.
                       </p>
                     </div>
                   )}
@@ -494,7 +494,7 @@ export function ContactLocation() {
               </h3>
             </div>
             <p className="text-xs text-slate-500 mb-6">
-              Send a direct message to our clinical staff. We respond promptly regarding medicine availability, prescription transfers, and health questions.
+              Send a direct message to our clinical staff. We respond promptly regarding medicine availability, product details, and health questions.
             </p>
 
             {isSubmitted ? (
@@ -582,10 +582,8 @@ export function ContactLocation() {
                     onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                     className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:border-transparent transition-all"
                   >
-                    <option value="Prescription Refill or Status">Prescription Refill or Status</option>
                     <option value="Check Medicine Stock & Pricing">Check Medicine Stock & Pricing</option>
                     <option value="Pharmacist Health Consultation">Pharmacist Health Consultation</option>
-                    <option value="Prescription Transfer from Other Pharmacy">Prescription Transfer from Other Pharmacy</option>
                     <option value="General Store & Hours Question">General Store & Hours Question</option>
                   </select>
                 </div>
@@ -599,7 +597,7 @@ export function ContactLocation() {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Provide details about your medicine, prescription number, or clinical inquiry..."
+                    placeholder="Provide details about your medicine or clinical inquiry..."
                     className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:border-transparent transition-all resize-none"
                   ></textarea>
                   {formErrors.message && (

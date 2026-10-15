@@ -12,7 +12,6 @@ import { AboutStore } from './components/AboutStore';
 import { ContactLocation } from './components/ContactLocation';
 import { Footer } from './components/Footer';
 import { MedicineDetailModal } from './components/MedicineDetailModal';
-import { PrescriptionModal } from './components/PrescriptionModal';
 import { CartDrawer, CartItem } from './components/CartDrawer';
 import { Medicine } from './data/medicines';
 import { Check } from 'lucide-react';
@@ -21,7 +20,6 @@ export default function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedMedicine, setSelectedMedicine] = useState<Medicine | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isPrescriptionModalOpen, setIsPrescriptionModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const cartItemIds = useMemo(() => {
@@ -82,14 +80,11 @@ export default function App() {
       <Navbar
         cartCount={totalCartCount}
         onOpenCart={() => setIsCartOpen(true)}
-        onOpenPrescriptionModal={() => setIsPrescriptionModalOpen(true)}
       />
 
       {/* Main Page Flow: Proposition -> Mechanism -> Catalog -> Store & Team -> Contact & Location */}
       <main className="flex-1">
-        <Hero
-          onOpenPrescriptionModal={() => setIsPrescriptionModalOpen(true)}
-        />
+        <Hero />
 
         <AboutMedicine />
 
@@ -113,12 +108,6 @@ export default function App() {
         onClose={() => setSelectedMedicine(null)}
         onAddToCart={handleAddToCart}
         isInCart={selectedMedicine ? cartItemIds.has(selectedMedicine.id) : false}
-      />
-
-      {/* Interactive Prescription Refill / Upload Modal */}
-      <PrescriptionModal
-        isOpen={isPrescriptionModalOpen}
-        onClose={() => setIsPrescriptionModalOpen(false)}
       />
 
       {/* Interactive Cart & Order Reservation Drawer */}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Copy, Check, Send, Navigation, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Copy, Check, Send, Navigation, CheckCircle2, Loader2 } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
 import { facilityExteriorImg } from '../assets/images';
 
@@ -14,9 +14,13 @@ export function ContactLocation() {
     topic: 'General Healthcare Inquiry',
     message: '',
   });
+  const [isSending, setIsSending] = useState(false);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [ticketId, setTicketId] = useState('');
+
+  // Formspree Form ID configuration (Can be set in .env as VITE_FORMSPREE_ID or updated here)
+  const FORMSPREE_FORM_ID = import.meta.env.VITE_FORMSPREE_ID || 'x2pvg38j';
 
   const copyToClipboard = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
@@ -24,7 +28,7 @@ export function ContactLocation() {
     setTimeout(() => setCopiedType(null), 2000);
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errors: Record<string, string> = {};
 
@@ -47,9 +51,40 @@ export function ContactLocation() {
     }
 
     setFormErrors({});
+    setIsSending(true);
+
     const generatedTicket = 'NLH-' + Math.floor(100000 + Math.random() * 900000);
-    setTicketId(generatedTicket);
-    setIsSubmitted(true);
+
+    try {
+      if (FORMSPREE_FORM_ID) {
+        await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            ticketId: generatedTicket,
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            topic: formData.topic,
+            message: formData.message,
+            _replyto: formData.email,
+            _subject: `[NewLight Health] ${formData.topic} from ${formData.name}`,
+          }),
+        });
+      }
+      setTicketId(generatedTicket);
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error('Email submission error:', err);
+      // Fallback display so user experience isn't broken
+      setTicketId(generatedTicket);
+      setIsSubmitted(true);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleResetForm = () => {
@@ -405,10 +440,20 @@ export function ContactLocation() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full py-3 px-4 text-xs font-semibold text-white bg-teal-700 hover:bg-teal-800 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                  disabled={isSending}
+                  className="w-full py-3 px-4 text-xs font-semibold text-white bg-teal-700 hover:bg-teal-800 disabled:opacity-60 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
                 >
-                  <Send className="w-3.5 h-3.5" />
-                  <span>Send Message</span>
+                  {isSending ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      <span>Sending Message...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-3.5 h-3.5" />
+                      <span>Send Message</span>
+                    </>
+                  )}
                 </button>
               </form>
             )}

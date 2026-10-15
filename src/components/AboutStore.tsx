@@ -57,10 +57,10 @@ export function AboutStore() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">
-                    Mr Frank Usenbor
+                    Dir. Mr Frank Usenbor
                   </h3>
                   <div className="text-xs text-teal-700 font-semibold mt-0.5">
-                   Medicine and Healthcare Director
+                   Medicine & Store and Healthcare Director
                   </div>
                   <div className="text-xs text-slate-500 font-mono mt-1">
                     NewLight Health Services

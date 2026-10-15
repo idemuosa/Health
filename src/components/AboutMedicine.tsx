@@ -1,5 +1,5 @@
 import { ShieldAlert, ThermometerSnowflake, FileCheck2, HeartHandshake, CheckCircle2 } from 'lucide-react';
-import { store3Img } from '../assets/images';
+import { store4Img } from '../assets/images';
 
 export function AboutMedicine() {
   const standards = [
@@ -55,7 +55,7 @@ export function AboutMedicine() {
           <div className="lg:col-span-5 space-y-4">
             <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-xs">
               <img
-                src={store3Img}
+                src={store4Img}
                 alt="Authentic pharmaceuticals and healthcare supplies display at NewLight Health Services"
                 className="w-full h-72 sm:h-80 object-cover"
               />

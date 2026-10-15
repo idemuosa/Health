@@ -135,9 +135,6 @@ export function MedicineStore({
                       <span className="font-mono text-[11px] tracking-wide uppercase font-medium text-slate-500">
                         {med.categoryLabel}
                       </span>
-                      <span className="text-[11px] font-medium text-teal-700">
-                        Over The Counter
-                      </span>
                     </div>
 
                     {/* Medicine Title */}

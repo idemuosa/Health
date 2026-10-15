@@ -1,6 +1,6 @@
 import { Stethoscope, Activity, HeartPulse, ShieldCheck, CheckCircle2, UserCheck, Building2 } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
-import { pharmacistPortraitImg, storeInteriorImg } from '../assets/images';
+import { DirectorImg, store2Img } from '../assets/images';
 
 export function AboutStore() {
   const storeServices = [
@@ -50,7 +50,7 @@ export function AboutStore() {
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                   <img
-                    src={pharmacistPortraitImg}
+                    src={DirectorImg}
                     alt="Mr Frank Usenbor, Medicine and Healthcare Director"
                     className="w-full h-full object-cover"
                   />
@@ -98,7 +98,7 @@ export function AboutStore() {
           <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs flex flex-col justify-between">
             <div className="relative h-60 sm:h-64 bg-slate-100">
               <img
-                src={storeInteriorImg}
+                src={store2Img}
                 alt="NewLight Health Services consultation room and interior atmosphere"
                 className="w-full h-full object-cover"
               />

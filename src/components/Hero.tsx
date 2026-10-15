@@ -1,6 +1,10 @@
 import { Phone, MapPin, ShieldCheck, HeartPulse } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
-import { heroImg } from '../assets/images';
+import { storeImg } from '../assets/images';
+import { store1Img } from '../assets/images';
+import { store2Img } from '../assets/images';
+import { store3Img } from '../assets/images';
+
 
 export function Hero() {
   return (
@@ -90,7 +94,7 @@ export function Hero() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm aspect-[4/3] lg:aspect-[1/1] xl:aspect-[4/3] group">
               <img
-                src={heroImg}
+                src={storeImg}
                 alt="NewLight Health Services modern health center and pharmacy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

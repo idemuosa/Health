@@ -22,9 +22,9 @@ export interface StoreInfo {
 
 export const STORE_INFO: StoreInfo = {
   name: 'NewLight Health Services',
-  tagline: 'Leading Healthcare Provider, Pharmacy & Wellness Center in Benin City',
+  tagline: 'Leading Healthcare Provider, Pharmacy/Medicine and Store, and Wellness Center in Benin City',
   licenseNumber: 'ED-PH-88204-NL',
-  leadPharmacist: 'Pharm. Wisdom Idemudia',
+  leadPharmacist: 'Dir Frank Usenbor',
   phonePrimary: '09066302198',
   phoneTollFree: '09066302198',
   phoneEmergency: '09066302198',
@@ -37,7 +37,7 @@ export const STORE_INFO: StoreInfo = {
   hours: {
     weekday: 'Monday – Friday: 8:00 AM – 9:00 PM',
     saturday: 'Saturday: 8:00 AM – 8:00 PM',
-    sunday: 'Sunday: 10:00 AM – 6:00 PM',
+    sunday: 'Sunday: 2:00 pm – 10:00 PM',
     driveThru: 'Emergency & Consultation Desk Active Daily',
   },
 };

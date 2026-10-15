@@ -1,5 +1,5 @@
 import { ShieldAlert, ThermometerSnowflake, FileCheck2, HeartHandshake, CheckCircle2 } from 'lucide-react';
-import { medicineDisplayImg } from '../assets/images';
+import { store3Img } from '../assets/images';
 
 export function AboutMedicine() {
   const standards = [
@@ -51,31 +51,27 @@ export function AboutMedicine() {
 
         {/* Content Split: Image showcase and Principles */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* Left Column: Image with clinical facts */}
+          {/* Left Column: Quality & Supply Highlights */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-xs">
-              <img
-                src={medicineDisplayImg}
-                alt="Authentic pharmaceuticals and healthcare supplies display at NewLight Health Services"
-                className="w-full h-72 sm:h-80 object-cover"
-              />
-              <div className="p-5 space-y-3">
-                <div className="text-sm font-bold text-slate-900">
-                  Authentic Healthcare & Pharmaceutical Supplies
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
+              <div className="w-12 h-12 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 flex items-center justify-center mb-4">
+                <FileCheck2 className="w-6 h-6" />
+              </div>
+              <div className="text-base font-bold text-slate-900 mb-3">
+                Authentic Healthcare & pharmaceutical Supplies
+              </div>
+              <div className="text-xs text-slate-600 space-y-3">
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
+                  <span>Verified pharmaceutical supply chain and NAFDAC registered products.</span>
                 </div>
-                <div className="text-xs text-slate-600 space-y-2">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
-                    <span>Verified pharmaceutical supply chain and NAFDAC registered products.</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
-                    <span>Hygienic, climate-controlled storage environment.</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
-                    <span>Wide range of essential medicines, wellness products, and diagnostics.</span>
-                  </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
+                  <span>Hygienic, climate-controlled storage environment.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
+                  <span>Wide range of essential medicines, wellness products, and diagnostics.</span>
                 </div>
               </div>
             </div>

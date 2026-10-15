@@ -62,7 +62,7 @@ export function Footer() {
               Patient Services
             </div>
             <ul className="space-y-2 text-slate-400">
-              <li>Prescription Refills & Sync</li>
+              <li>Over-The-Counter Medicine</li>
               <li>Walk-In Flu & Travel Vaccines</li>
               <li>Free Blood Pressure Checks</li>
               <li>Private Health Consultation</li>

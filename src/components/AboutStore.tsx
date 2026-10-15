@@ -49,7 +49,7 @@ export function AboutStore() {
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                   <img
-                    src="/src/assets/images/pharmacist_lead_portrait_1792056685701.jpg"
+                    src="/src/assets/images/pharmacist_portrait.webp"
                     alt="Dr. Sarah Jenkins, Lead Clinical Pharmacist"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
@@ -72,7 +72,7 @@ export function AboutStore() {
               </div>
 
               <p className="text-xs text-slate-600 leading-relaxed">
-                "Our store was built on a simple promise: every patient leaves knowing exactly how to take their medicine, what side effects to watch for, and how their prescriptions work together. We take time to talk, listen, and answer your questions."
+                "Our store was built on a simple promise: every patient leaves knowing exactly how to take their medicine, what side effects to watch for, and how their health products work together. We take time to talk, listen, and answer your questions."
               </p>
 
               <div className="mt-5 space-y-2 pt-4 border-t border-slate-100 text-xs text-slate-600">
@@ -101,8 +101,8 @@ export function AboutStore() {
           <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs flex flex-col justify-between">
             <div className="relative h-64 sm:h-72 bg-slate-100">
               <img
-                src="/src/assets/images/store_interior_consultation_1792056684307.jpg"
-                alt="Modern consultation station and sterile dispensing compounding bench"
+                src="/src/assets/images/pharmacy_shelves_angle.webp"
+                alt="Modern consultation station and organized pharmacy shelves"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -110,9 +110,9 @@ export function AboutStore() {
                 }}
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-4 text-white">
-                <div className="text-xs font-semibold text-teal-300">Private Consultation Station</div>
+                <div className="text-xs font-semibold text-teal-300">Organized Dispensary & Retail Shelves</div>
                 <div className="text-xs text-slate-200">
-                  Soundproof acoustic glass booths for confidential patient medication reviews
+                  Fully stocked pharmaceutical inventory and over-the-counter products
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@ export function AboutStore() {
                 Built for Patient Safety, Accessibility & Comfort
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Located conveniently directly across from the regional hospital, our store features step-free ramp access, wide aisles, private counseling suites, a 24-hour drive-through prescription window, and a dedicated automated compounding workstation.
+                Located conveniently directly across from the regional hospital, our store features step-free ramp access, wide aisles, private counseling suites, a 24-hour drive-through pick-up window, and a dedicated automated compounding workstation.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4 pt-4 border-t border-slate-100 text-xs">

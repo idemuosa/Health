@@ -1,11 +1,7 @@
-import { ArrowRight, FileText, Phone, MapPin, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Phone, MapPin, ShieldCheck } from 'lucide-react';
 import { STORE_INFO } from '../data/medicines';
 
-interface HeroProps {
-  onOpenPrescriptionModal: () => void;
-}
-
-export function Hero({ onOpenPrescriptionModal }: HeroProps) {
+export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
@@ -26,11 +22,11 @@ export function Hero({ onOpenPrescriptionModal }: HeroProps) {
             {/* Description */}
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
               We combine hospital-grade pharmaceutical diligence with personal neighborhood care.
-              Browse authentic over-the-counter and prescription medicines, consult directly with our
+              Browse authentic healthcare products, consult directly with our
               board-certified clinical team, and enjoy easy in-store pickup or local delivery.
             </p>
 
-            {/* Primary & Secondary Actions */}
+            {/* Primary Action */}
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <a
                 href="#store-catalog"
@@ -39,14 +35,6 @@ export function Hero({ onOpenPrescriptionModal }: HeroProps) {
                 <span>Browse Medicine Store</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-
-              <button
-                onClick={onOpenPrescriptionModal}
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors whitespace-nowrap"
-              >
-                <FileText className="w-4 h-4 text-teal-700" />
-                <span>Upload Prescription / Refill</span>
-              </button>
             </div>
 
             {/* Unboxed Metadata Trust Bar (NO PILLS) */}
@@ -97,8 +85,8 @@ export function Hero({ onOpenPrescriptionModal }: HeroProps) {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm aspect-[4/3] lg:aspect-[1/1] xl:aspect-[4/3]">
               <img
-                src="/src/assets/images/hero_modern_pharmacy_1792056684377.jpg"
-                alt="Modern CuraMed pharmacy and wellness store interior"
+                src="/src/assets/images/pharmacy_shelves.webp"
+                alt="Modern CuraMed pharmacy and wellness store shelves"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -111,7 +99,7 @@ export function Hero({ onOpenPrescriptionModal }: HeroProps) {
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-5 text-white">
                 <div className="text-xs font-semibold text-teal-300">Modern Clinical Dispensary</div>
                 <div className="text-sm font-medium mt-0.5">
-                  Walk-in health consultations, prescription sync, and temperature-controlled storage
+                  Walk-in health consultations and temperature-controlled storage
                 </div>
               </div>
             </div>

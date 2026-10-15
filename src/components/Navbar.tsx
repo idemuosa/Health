@@ -5,10 +5,9 @@ import { STORE_INFO } from '../data/medicines';
 interface NavbarProps {
   cartCount: number;
   onOpenCart: () => void;
-  onOpenPrescriptionModal: () => void;
 }
 
-export function Navbar({ cartCount, onOpenCart, onOpenPrescriptionModal }: NavbarProps) {
+export function Navbar({ cartCount, onOpenCart }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Check if store is currently open (8:00 - 21:00 on weekdays, etc.)
@@ -79,15 +78,8 @@ export function Navbar({ cartCount, onOpenCart, onOpenPrescriptionModal }: Navba
           </a>
         </nav>
 
-        {/* Zone 3: 1 primary action + cart drawer affordance */}
+        {/* Zone 3: Cart drawer affordance */}
         <div className="flex items-center gap-3 shrink-0">
-          <button
-            onClick={onOpenPrescriptionModal}
-            className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold text-white bg-teal-700 rounded-lg hover:bg-teal-800 transition-colors whitespace-nowrap shrink-0 shadow-xs"
-          >
-            Refill / Upload Rx
-          </button>
-
           {/* Cart Bag Button */}
           <button
             onClick={onOpenCart}
@@ -153,17 +145,6 @@ export function Navbar({ cartCount, onOpenCart, onOpenPrescriptionModal }: Navba
               Contact & Hours
             </a>
           </nav>
-          <div className="pt-2 border-t border-slate-100">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenPrescriptionModal();
-              }}
-              className="w-full py-2.5 text-xs font-semibold text-white bg-teal-700 rounded-lg hover:bg-teal-800 transition-colors text-center"
-            >
-              Refill / Upload Prescription
-            </button>
-          </div>
         </div>
       )}
     </header>

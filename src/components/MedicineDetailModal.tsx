@@ -45,15 +45,9 @@ export function MedicineDetailModal({
                 {medicine.categoryLabel}
               </span>
               <span>·</span>
-              {medicine.isRxRequired ? (
-                <span className="font-semibold text-amber-800">
-                  Prescription (Rx) Required
-                </span>
-              ) : (
-                <span className="font-semibold text-teal-700">
-                  Over The Counter (OTC)
-                </span>
-              )}
+              <span className="font-semibold text-teal-700">
+                Over The Counter (OTC)
+              </span>
             </div>
             <h3 className="text-xl font-bold text-slate-900">{medicine.name}</h3>
             <div className="text-xs text-slate-600 mt-0.5">
